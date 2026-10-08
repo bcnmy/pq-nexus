@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* Light palette following biconomy.io: near-black ink on #fafafa, orange accent (docs primary #ec5d31). */
+:root {
+  --bg: #fafafa;
+  --ink: #050505;
+  --muted: #6b6b6b;
+  --line: #ebebeb;
+  --card: #ffffff;
+  --soft: #f4f4f4;
+  --brand: #ec5d31;
+  --brand-ink: #c4441b;
+  --brand-soft: #fdeee8;
+  --ok: #0f8a4a;
+  --ok-soft: #e6f6ed;
+  --bad: #d92d20;
+  --bad-soft: #fdecea;
+  --warn: #b45309;
+  --warn-soft: #fff6e5;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-fg: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-card: var(--card);
+  --color-soft: var(--soft);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--brand);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --font-sans: var(--font-instrument);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition hover:bg-black/80 disabled:cursor-not-allowed disabled:opacity-30;
+  }
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-white shadow-[0_6px_20px_-6px_rgba(236,93,49,0.6)] transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-30 disabled:shadow-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-card px-5 py-2.5 text-sm font-medium transition hover:border-ink/30 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-bad/30 bg-bad-soft px-5 py-2.5 text-sm font-medium text-bad transition hover:border-bad/60 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .input {
+    @apply w-full rounded-xl border border-line bg-card px-3.5 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-brand focus:ring-4 focus:ring-brand/10;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-card p-5 shadow-[0_1px_2px_rgba(5,5,5,0.04)] sm:p-6;
+  }
+  .label {
+    @apply text-xs font-medium tracking-wide text-muted uppercase;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1 text-xs font-medium;
+  }
+  .link {
+    @apply text-brand-ink underline-offset-2 hover:underline;
+  }
+}
+
+/* Shadows that appear only when a list can scroll further in that direction. */
+.scroll-shadow {
+  background:
+    linear-gradient(var(--card) 30%, transparent) top / 100% 24px no-repeat local,
+    linear-gradient(transparent, var(--card) 70%) bottom / 100% 24px no-repeat local,
+    radial-gradient(farthest-side at 50% 0, rgba(5, 5, 5, 0.12), transparent) top / 100% 10px no-repeat scroll,
+    radial-gradient(farthest-side at 50% 100%, rgba(5, 5, 5, 0.12), transparent) bottom / 100% 10px no-repeat scroll;
+  background-color: var(--card);
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+}

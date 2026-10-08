@@ -1,0 +1,40 @@
+# Compiler settings mirror lib/stx-contracts/foundry.toml (Nexus 1.3.3, MEE suite 2.2.3) so the Nexus
+# runtime bytecode built here matches the canonical deployment apart from the default validator immutable.
+[profile.default]
+  auto_detect_solc = false
+  solc = "0.8.27"
+  evm_version = "cancun"
+  via_ir = true
+  optimizer = true
+  optimizer_runs = 200
+  bytecode_hash = "none"
+  src = "src"
+  test = "test"
+  script = "script"
+  out = "out"
+  libs = ["lib"]
+  ffi = true
+  fs_permissions = [
+    { access = "read", path = "./test/vectors" },
+    { access = "read", path = "./lib/stx-contracts/script/deploy/artifacts" },
+    { access = "read-write", path = "./deployments" },
+  ]
+  remappings = [
+    "forge-std/=lib/stx-contracts/node_modules/forge-std/src/",
+    "account-abstraction/=lib/stx-contracts/node_modules/account-abstraction/contracts/",
+    "solady/=lib/stx-contracts/node_modules/solady/src/",
+    "sentinellist/=lib/stx-contracts/node_modules/@rhinestone/sentinellist/src/",
+    "module-bases/=lib/stx-contracts/node_modules/@rhinestone/module-bases/src/",
+    "erc7739Validator/=lib/stx-contracts/node_modules/@erc7579/erc7739-validator-base/src/",
+    "EnumerableSet4337/=lib/stx-contracts/node_modules/@erc7579/enumerablemap4337/src/",
+    "erc7579/=lib/stx-contracts/node_modules/@erc7579/implementation/src/",
+    "excessively-safe-call/=lib/stx-contracts/node_modules/excessively-safe-call/src/",
+    "composability/=lib/stx-contracts/lib/erc8211-contracts/contracts/",
+    "@openzeppelin/=lib/stx-contracts/node_modules/@openzeppelin/",
+    "nexus/=lib/stx-contracts/contracts/",
+    # stx-contracts maps src/ into @erc7579/implementation; keep our own src/ pointing at this project.
+    "src/=src/",
+  ]
+
+[rpc_endpoints]
+  sepolia = "${SEPOLIA_RPC_URL}"

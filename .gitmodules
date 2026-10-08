@@ -1,0 +1,3 @@
+[submodule "contracts/lib/stx-contracts"]
+	path = contracts/lib/stx-contracts
+	url = https://github.com/bcnmy/stx-contracts

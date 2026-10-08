@@ -1,0 +1,10 @@
+{
+  "chainId": 11155111,
+  "entryPoint": "0x0000000071727De22E5E9d8BAf0edAc6f37da032",
+  "nexusAccountFactory": "0x5Afeb10EC544fB8b057EB701f4DB1B7614b3cf3D",
+  "nexusBootstrap": "0x5afeac4b69a31916c47947A6097A6fA13105fE2E",
+  "nexusImplementation": "0x5aFe78392E1783694B3143Be240a39c9C4Fe04F4",
+  "pqDemoToken": "0x5AfE212fE1F99A518421E08Fa6A49a0A262e1ED2",
+  "sphincsValidator": "0x5afEDD39DB9975a71c6CA68A26ca8aB38B03313C",
+  "sphincsVerifier": "0x5afEC0756e47697C6Eae592debf44C4E67B0fD0A"
+}

@@ -1,0 +1,18 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# contracts
+contracts/out/
+contracts/cache/
+contracts/broadcast/*/31337/
+contracts/deployments/anvil-*.json
+
+# app
+app/.next/
+app/out/
+app/next-env.d.ts
+app/tsconfig.tsbuildinfo
+app/.vercel
